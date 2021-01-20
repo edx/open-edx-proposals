@@ -16,7 +16,7 @@ Motivation
 Goals
 =====
 
-We propose a few ways to make it easy for developers to describe the changes they make to software.  The nearer to the change that information is captured, the easier it will be to write, and the more accurate it will be.
+We propose a few ways to make it easy for developers to describe the changes they make to software.  The nearer to the change that information is captured, the easier it will be to write, and the more accurate it will be.  Changes made by developers are consumed by many people.  The more the developer can explain the change, the more easily the change will be understood and used, and the more efficient the overall development process will be.
 
 
 Audiences
@@ -24,19 +24,23 @@ Audiences
 
 When describing changes, it helps to consider the diverse audiences who will be using the information:
 
-- Course teams.
+- Engineers reviewing the change.
 
-- Other engineers, when upgrading dependencies.
+- Course teams using the updated code once it is deployed.
 
-- Other engineers, when trying to understand the history of a component.
+- Other engineers when upgrading dependencies.
 
-- The edX SRE team, when understanding how to help deploying code.
+- Other engineers when trying to understand the history of a component.
+
+- The edX SRE team when understanding how to help deploying code.
 
 - Open edX operators, when upgrading their installations, re-applying their own patches, or developing their own deployment systems.
 
 - Open edX developers, when learning how to update their use of a component.
 
 - Support teams, when giving guidance to learners or instructors.
+
+- Authors of release notes.
 
 - People writing documentation or support guidance for learners/educators/administrators using the edx.org site, or other Open edX sites.
 
@@ -46,19 +50,21 @@ Information Needed
 
 These are the types of information needed when describing changes.  In general, it is fine to link to information rather than copy it.
 
-- Describe the change.
+- Describe the change.  What is new, what has been removed?  
 
 - Describe why the change was made. This can help people understand the implications, or reconstruct the logic behind the change.
 
-- If there are existing issues, Jira tickets, or supporting discussion elsewhere, provide links. The more information the better.
+- If there are existing issues, Jira tickets, or supporting discussion elsewhere, provide links. The more information the better.  Often there are details in these discussions that can deepen the understanding of the change, or the reason for the change.
 
-- Breaking changes should describe what feature or compatibility has been lost, and should be clearly labeled as a breaking change.
+- Breaking changes should describe what feature or compatibility has been lost, and should be clearly labeled as a breaking change.  What replaces the lost behavior? What updates do consumers of the change need to make?
   
-- User impact: what user roles are affected by this change, and how? This helps people understand the change.
+- User impact: what user roles are affected by this change, and how? This simple categorization helps people looking through changes for ones that might affect them.
 
-- Testing instructions.
+- Testing instructions. These are primarily intended to speed up the review cycle, avoiding the reviewer wasting time trying to infer the steps to test from the description. Instructions can also be useful for later reference if a future developer is researching regression. Writing step-by-step instructions may also help the developer to remember details they had overlooked.
 
 - Specialized concerns:
+
+  - Are there deprecations?
 
   - Are there database migrations?
 
@@ -70,7 +76,7 @@ Features
 
 For feature changes, changes should also be accompanied by:
 
-- Description of how to use the feature.
+- Description of how to use the feature. 
 
 - For UI changes, screenshots are immensely helpful.
 
